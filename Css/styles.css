@@ -1,0 +1,228 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline-style: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+}
+
+section {
+    margin-top: 20px;
+}
+
+section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: red;
+}
+
+section .container .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header .container .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+header .container .row .logo {
+    cursor: pointer;
+    height: 50px;
+}
+
+header .container .row .btn-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .container .row .btn-topo input[type="search"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+header .container .row .btn-topo input[type="search"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+header .container .row .btn-topo button {
+    background: #007bff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+header .container .row .btn-topo button:hover {
+    background: #0056b3;
+}
+
+
+.temp {
+    background-color: #0056b3;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.temp .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+}
+
+.temp .city-txt {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.temp .temp-info-top {
+    width: 100px;
+    height: 50px;
+    background-color: ghostwhite;
+    display: flex;
+    gap: 20px;
+}
+
+.temp .temp-info {
+    background-color: red;
+    height: 50px;
+}
+
+.temp .temp-info p {
+    font-size: 10px;
+}
+
+.temp .temp-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temp .temp-infos h1 {
+    font-size: 15px;
+    text-align: center;
+}
+
+.temp .temp-infos p {
+    font-size: 10px;
+}
+
+.temp .temp-info-top .temp-cel {
+    display: flex;
+    gap: 10px;
+}
+
+.temp .temp-info-top .temp-cel i {
+    font-size: 2rem;
+}
+
+.temp .temp-info-top .temp-cel h1 {
+    font-size: 16px;
+}
+
+.temp .days-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+    background: #ffffff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer .container {
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .container .img-logo-footer img {
+    display: none;
+}
+
+footer .container .txt-direitos p {
+    font-size: 14px;
+    color: #666666;
+}
+
+footer .container .contact-footer {
+    display: flex;
+    gap: 16px;
+}
+
+footer .container .contact-footer .contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+footer .container .contact-footer .contact-icons i {
+    font-size: 20px;
+    color: #007bff;
+}
+
+footer .container .contact-footer .contact-icons .bi-instagram {
+    cursor: pointer;
+    color: #e4405f;
+}
+footer .container .contact-footer .contact-icons .bi-instagram:hover {
+    color: #c13584;
+}
+
+footer .container .contact-footer .contact-icons .bi-whatsapp {
+    cursor: pointer;
+    color: #25d366;
+}
+footer .container .contact-footer .contact-icons .bi-whatsapp:hover {
+    color: #128c7e;
+}
+
+footer .container .contact-footer .contact-icons .bi-youtube {
+    cursor: pointer;
+    color: #ff0000;
+}
+footer .container .contact-footer .contact-icons .bi-youtube:hover {
+    color: #cc0000;
+}
