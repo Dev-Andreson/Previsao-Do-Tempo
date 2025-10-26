@@ -16,8 +16,8 @@
                     <a href="index.html"><img src="src/midia/vitemp-logo.png" alt="ViTemp Logo" class="logo"></a>
                 <div class="btn-topo">
                     <i class="bi bi-geo-alt-fill"></i>
-                    <input type="search" name="city_name" id="city_name" placeholder="Digite o nome da cidade">
-                    <button type="submit"><i class="bi bi-search" onclick="Busca"></i></button>
+                    <input type="search" name="city_name" id="city_name" placeholder="Digite o nome da cidade" onkeydown="if(event.key === 'Enter') buscaApi()">
+                    <button type="submit" onclick="buscaApi()"><i class="bi bi-search"></i></button>
                 </div>
             </div>
         </div>
@@ -30,25 +30,24 @@
                     <div class="temp">
                         
                         <div class="city-txt">
-                                <h1>Tempo em <h1 class="city"></h1></h1>
+                                <h1>Tempo em <span id="city">Recife</span></h1>
                         </div>
 
                         <div class="top">
                             <div class="temp-info-top">
-                                <div class="temp-cel">
-                                    <i class="bi bi-brightness-high-fill"></i>
-                                    <h1 class="cel">27.3°C</h1>
+                                <div id="temp-cel">
+                                    
                                 </div>
                             </div>
                             <div class="temp-info">
-                                <p class="Chuva"></p>
-                                <p class="Humidade"></p>
-                                <p class="Vento"></p>
+                                <p id="Chuva"></p>
+                                <p id="Humidade"></p>
+                                <p id="Vento"></p>
                             </div>
                             <div class="temp-infos">
                                 <h1>Metereologia</h1>
-                                <p class="skye-info"></p>
-                                <p class="dat"></p>
+                                <p id="dat"></p>
+                                <p id="skye-info"></p>
                             </div>
                         </div>
 
