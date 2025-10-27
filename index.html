@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +24,8 @@
     </header>
 
     <main>
-        <section>
-            <div class="container">
+        <section class="main-temp">
+            <div class="container" id="container">
                 <div class="row">
                     <div class="temp">
                         
@@ -38,12 +38,13 @@
                                 <div id="temp-cel">
                                     
                                 </div>
+                                <div class="temp-info">
+                                    <p id="Chuva"></p>
+                                    <p id="Humidade"></p>
+                                    <p id="Vento"></p>
+                                </div>
                             </div>
-                            <div class="temp-info">
-                                <p id="Chuva"></p>
-                                <p id="Humidade"></p>
-                                <p id="Vento"></p>
-                            </div>
+                            
                             <div class="temp-infos">
                                 <h1>Metereologia</h1>
                                 <p id="dat"></p>
@@ -51,71 +52,55 @@
                             </div>
                         </div>
 
-                        <div class="days-info">
-                            <div class="day-1">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
+                        <div class="days-info" id="dias-semana">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="indices">
+            <div class="container">
+                <div class="row">
+                    <div class="contente">
+                        <div id="tdc">
+                            
+                        </div>
+                        <div id="l-e">
+                            <div id="txt-l-e">
+                                
+                            </div>
+                            <div id="l-e-infos">
+                                <div id="temperatura">
+                                    
+                                </div>
+                                <div id="chuva-indice">
+                                    
+                                </div>
+                                <div id="vento-indice">
+                                    
+                                </div>
+                                <div id="umidade-indice">
+                                    
                                 </div>
                             </div>
-                            <div class="day-2">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
+                        </div>
+                        <div id="l-d-infos">
+                            <div class="l-d-icons">
+                                <div id="icon-manha"> 
+                                    <i></i>
+                                    <p>Manhã</p>
+                                </div>
+                                <div id="icon-tarde">
+                                    <i></i>
+                                    <p>Tarde</p>
+                                </div>
+                                <div id="icon-noite">
+                                    <i></i>
+                                    <p>Noite</p>
                                 </div>
                             </div>
-                            <div class="day-3">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
-                                </div>
-                            </div>
-                            <div class="day-4">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
-                                </div>
-                            </div>
-                            <div class="day-5">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
-                                </div>
-                            </div>
-                            <div class="day-6">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
-                                </div>
-                            </div>
-                            <div class="day-7">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
-                                </div>
-                            </div>
-                            <div class="day-8">
-                                <p></p>
-                                <i class="bi bi-brightness-alt-high-fill"></i>
-                                <div class="max-min">
-                                    <p class="max"></p>
-                                    <p class="min"></p>
-                                </div>
-                            </div>
+                            <div class="l-d-map"></div>
                         </div>
                     </div>
                 </div>
@@ -132,7 +117,7 @@
             <div class="contact-footer">
                 <h3>Contatos</h3>
                 <div class="contact-icons">
-                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.instagram.com/dev.andreson" target="_blank"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-whatsapp"></i></a>
                     <a href="#"><i class="bi bi-youtube"></i></a>
                 </div>

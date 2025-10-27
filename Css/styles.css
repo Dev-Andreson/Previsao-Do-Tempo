@@ -21,8 +21,7 @@ section {
 section .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: red;
+    padding: 10px;
 }
 
 section .container .row {
@@ -90,19 +89,26 @@ header .container .row .btn-topo button:hover {
     background: #0056b3;
 }
 
+section #container {
+    width: 100%;
+    padding: 0px;
+}
+
+/* Temp Start*/
 
 .temp {
-    background-color: #0056b3;
-    width: 100%;
+    width: 100vw;
     height: auto;
     display: flex;
     flex-direction: column;
+    background-color: #0056b3;
+    padding-bottom: 10px;
 }
 
 .temp .top {
     display: flex;
     justify-content: space-between;
-    padding: 7px;
+    padding: 5px 10px;
 }
 
 .temp .city-txt {
@@ -111,10 +117,13 @@ header .container .row .btn-topo button:hover {
     gap: 10px;
 }
 
+.temp .city-txt h1 {
+    color: #ffffff;
+}
+
 .temp .temp-info-top {
     width: 100px;
     height: 50px;
-    background-color: ghostwhite;
 }
 
 .temp #temp-cel {
@@ -129,15 +138,16 @@ header .container .row .btn-topo button:hover {
 }
 
 .temp #temp-cel h1 {
+    color: #dddcdc;
     font-size: 16px;
 }
 
 .temp .temp-info {
-    background-color: red;
     height: 50px;
 }
 
 .temp .temp-info p {
+    color: #ffffff83;
     font-size: 10px;
 }
 
@@ -147,6 +157,10 @@ header .container .row .btn-topo button:hover {
     align-items: center;
 }
 
+.temp .temp-infos h1,p {
+    color: #ffffff;
+}
+
 .temp .temp-infos h1 {
     font-size: 15px;
     text-align: center;
@@ -154,6 +168,13 @@ header .container .row .btn-topo button:hover {
 
 .temp .temp-infos p {
     font-size: 10px;
+}
+
+.temp .temp-info-top {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .temp .temp-info-top .temp-cel {
@@ -170,9 +191,32 @@ header .container .row .btn-topo button:hover {
 }
 
 .temp .days-info {
+    margin-top: 10px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
+
+.temp .days-info p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.temp .days-info img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Temp End*/
+
+
+/* Indicis Start*/
+.indices .contente {
+    padding: 0px 16px;
+}
+/* Indicis End*/
 
 footer {
     width: 100%;
