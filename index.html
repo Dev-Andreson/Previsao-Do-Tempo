@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="Css/styles.css">
-    <script src="Js/script.js" defer></script>
+    <link rel="stylesheet" href="/src/Css/styles.css">
+    <script src="/src/Js/script.js" defer></script>
     <meta name="author" content="dev.andreson">
     <title>ViTemp</title>
 </head>
@@ -13,7 +13,7 @@
     <header>
         <div class="container">
             <div class="row">
-                    <a href="index.html"><img src="src/midia/vitemp-logo.png" alt="ViTemp Logo" class="logo"></a>
+                    <a href="index.html"><img src="assets/midia/vitemp-logo.png" alt="ViTemp Logo" class="logo"></a>
                 <div class="btn-topo">
                     <i class="bi bi-geo-alt-fill"></i>
                     <input type="search" name="city_name" id="city_name" placeholder="Digite o nome da cidade" onkeydown="if(event.key === 'Enter') buscaApi()">
@@ -63,44 +63,59 @@
             <div class="container">
                 <div class="row">
                     <div class="contente">
-                        <div id="tdc">
-                            
+                        
+                        <div class="l-d-icons">
+                            <div id="icon-manha"> 
+                                <i></i>
+                                <p>Manhã</p>
+                            </div>
+                            <div id="icon-tarde">
+                                <i></i>
+                                <p>Tarde</p>
+                            </div>
+                            <div id="icon-noite">
+                                <i></i>
+                                <p>Noite</p>
+                            </div>
                         </div>
+                        <div class="l-d-map"></div>
                         <div id="l-e">
+                            <div id="tdc">
+                            
+                            </div>
                             <div id="txt-l-e">
                                 
                             </div>
-                            <div id="l-e-infos">
-                                <div id="temperatura">
+                            <div id="temperatura">
                                     
-                                </div>
-                                <div id="chuva-indice">
+                            </div>
+                            <div id="chuva-indice">
                                     
-                                </div>
-                                <div id="vento-indice">
+                            </div>
+                            <div id="vento-indice">
                                     
-                                </div>
-                                <div id="umidade-indice">
+                            </div>
+                            <div id="umidade-indice">
                                     
-                                </div>
                             </div>
                         </div>
-                        <div id="l-d-infos">
-                            <div class="l-d-icons">
-                                <div id="icon-manha"> 
-                                    <i></i>
-                                    <p>Manhã</p>
-                                </div>
-                                <div id="icon-tarde">
-                                    <i></i>
-                                    <p>Tarde</p>
-                                </div>
-                                <div id="icon-noite">
-                                    <i></i>
-                                    <p>Noite</p>
-                                </div>
-                            </div>
-                            <div class="l-d-map"></div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="noticias">
+            <div class="container">
+                <div class="row">
+                    <div class="cards">
+                        <div class="card">
+                            
+                        </div>
+                        <div class="card-1">
+                            
+                        </div>
+                        <div class="card-2">
+                            
                         </div>
                     </div>
                 </div>
@@ -110,7 +125,7 @@
 
     <footer>
         <div class="container">
-            <div class="img-logo-footer"><img src="src/midia/vitemp-ini.png" alt=""></div>
+            <div class="img-logo-footer"><img src="assets/midia/vitemp-ini.png" alt=""></div>
             <div class="txt-direitos">
                 <p>© 2024 ViTemp. Todos os direitos reservados.</p>
             </div>

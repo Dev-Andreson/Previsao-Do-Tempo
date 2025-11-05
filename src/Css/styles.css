@@ -12,6 +12,7 @@ body, html {
     width: 100%;
     height: 100%;
     background: #e0e0e0;
+    background-color: #0056b3;
 }
 
 section {
@@ -21,7 +22,6 @@ section {
 section .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px;
 }
 
 section .container .row {
@@ -89,11 +89,6 @@ header .container .row .btn-topo button:hover {
     background: #0056b3;
 }
 
-section #container {
-    width: 100%;
-    padding: 0px;
-}
-
 /* Temp Start*/
 
 .temp {
@@ -101,7 +96,6 @@ section #container {
     height: auto;
     display: flex;
     flex-direction: column;
-    background-color: #0056b3;
     padding-bottom: 10px;
 }
 
@@ -213,22 +207,99 @@ section #container {
 
 
 /* Indicis Start*/
-.indices .contente {
-    padding: 0px 16px;
+
+.indices .l-d-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.indices #icon-manha,
+.indices #icon-tarde,
+.indices #icon-noite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.indices #icon-manha,
+.indices #icon-tarde,
+.indices #icon-noite p{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.indices #l-e {
+    display: flex;
+    flex-direction: column;
+}
+
+.indices #tdc,
+.indices #txt-l-e,
+.indices #temperatura,
+.indices #chuva-indice,
+.indices #vento-indice,
+.indices #umidade-indice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.indices #tdc,
+.indices #txt-l-e,
+.indices #temperatura,
+.indices #chuva-indice,
+.indices #vento-indice,
+.indices #umidade-indice h1 {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* Indicis End*/
+
+/* Noticias Start*/
+.noticias .cards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.noticias .cards .card, .card-1, .card-2 {
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.noticias .cards .card, .card-1, .card-2, a {
+    font-size: 20px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.noticias .cards .card, .card-1, .card-2, a:hover {
+    color: #007bff;
+    transition: 0.5s;
+}
+/* Noticias End*/
 
 footer {
     width: 100%;
     height: auto;
-    margin-top: 16px;
+    border: 1px solid #474545a6;
     background: #ffffff;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer .container {
     width: 100%;
-    padding: 0 16px;
+    padding: 16px;
     display: flex;
     align-items: center;
     flex-direction: column;

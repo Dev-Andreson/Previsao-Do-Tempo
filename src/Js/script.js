@@ -55,6 +55,14 @@ async function recifeInfo () {
 
     /* TDC End */
 
+    /* Noticas Start*/
+    document.querySelector(".card").innerHTML = `
+    <a href="https://www.climatempo.com.br/busca?q=${encodeURIComponent("Recife")}">Saiba mais em ClimaTempo.com</a>`
+    document.querySelector(".card-1").innerHTML = `
+    <a href="https://g1.globo.com/busca?q=${encodeURIComponent("Previsão do tempo em Recife")}">Saiba mais em G1.com</a>`
+    document.querySelector(".card-2").innerHTML = `
+    <a href="https://www.google.com/search?q=${encodeURIComponent("Noticias do tempo em Recife")}">Saiba mais no google.com</a>`
+
     mostrarPrevisao(objRecife);
 }
 recifeInfo();
@@ -93,6 +101,14 @@ async function buscaApi () {
         <i class="bi bi-star"></i>
         <h1>Previsão do tempo Hoje {${date}} ${objApi.location.name} </h1>
         <i class="bi bi-geo-alt-fill"></i>`
+
+        document.querySelector(".card").innerHTML = `
+        <a href="https://www.climatempo.com.br/busca?q=${encodeURIComponent(city)}">Saiba mais em ClimaTempo.com</a>`
+        document.querySelector(".card-1").innerHTML = `
+        <a href="https://g1.globo.com/busca?q=${encodeURIComponent('Previsão do tempo em ' + city)}">Saiba mais em G1.com</a>`
+        document.querySelector(".card-2").innerHTML = `
+        <a href="https://www.google.com/search?q=${encodeURIComponent('Noticias do tempo em ' + city)}">Saiba mais no google.com</a>`
+
 
         mostrarPrevisao(objApi);
     }
