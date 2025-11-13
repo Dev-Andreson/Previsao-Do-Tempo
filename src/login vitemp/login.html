@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViTemp | Login</title>
+  <link rel="stylesheet" href="/src/login vitemp/styles/styles.css">
+  <script src="/src/login vitemp/js/script.js" defer></script>
+  <script src="/src/login vitemp/js/sign.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <main class="login-section">
+    <div class="card">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-content signin">
+            <div class="hero-txt">
+              <h2>Bem-vindo de volta.</h2>
+              <h3>
+                Como ela, fique tranquilo e preparado — veja a previsão antes de sair.  
+                A ViTemp ajuda você a planejar o dia com confiança, faça sol ou faça chuva.
+              </h3>
+            </div>
+            <img src="https://media.istockphoto.com/id/936604422/pt/foto/happy-teen-holding-a-mug-looking-through-a-window.jpg?s=612x612&w=0&k=20&c=hkLayMfl2wYm_Z_Jp90ghpHXBJepY3LgZGPE1G7Br9Y=" 
+                alt="Ilustração de uma mulher olhando pela janela, tranquila dentro de casa.">
+          </div>
+
+          <div class="hero-content signup">
+            <div class="hero-txt">
+              <h2>Junte-se a nós.</h2>
+              <h3>
+                Não seja pego pela chuva outra vez!  
+                Crie sua conta na ViTemp e saiba sempre quando levar o guarda-chuva.
+              </h3>
+            </div>
+            <img src="https://thumbs.dreamstime.com/b/o-homem-sob-do-amante-corajoso-desapontado-s%C3%B3-triste-molhado-virado-lonliness-ver%C3%A3o-sol-chuveiro-da-%C3%A1gua-chuva-olhar-de-limpeza-126856228.jpg" 
+                alt="Ilustração de um homem encharcado na chuva.">
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulários -->
+      <div class="form">
+        <img src="/assets/midia/vitemp-ini.png" alt="">
+        <div class="forms">
+          <form class="signin active">
+            <h3>Sign In</h3>
+            <label>Email</label>
+            <input type="email" placeholder="suaconta@gmail.com">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••">
+            <button type="submit" class="btn">SIGN IN</button>
+            <div class="loading" id="loading"></div>
+            <p>Don’t have an account? <a href="#" onclick="sign('up')">Sign Up</a>.</p>
+          </form>
+
+          <form class="signup">
+            <h3>Sign Up</h3>
+            <label>Name</label>
+            <input type="text" placeholder="Your full name">
+            <label>Email</label>
+            <input type="email" placeholder="youremail@gmail.com">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••">
+            <button type="submit" class="btn">SIGN UP</button>
+            <p>Already have an account? <a href="#" onclick="sign('in')">Sign In</a>.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

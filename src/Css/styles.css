@@ -30,9 +30,10 @@ section .container .row {
     justify-content: center;
 }
 
+/* Header START*/
 header {
-    width: 100%;
-    height: 80px;
+    width: auto;
+    height: 5rem;
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -42,9 +43,7 @@ header .container {
     height: 100%;
     margin: 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 5px;
 }
 
 header .container .row {
@@ -56,13 +55,13 @@ header .container .row {
 
 header .container .row .logo {
     cursor: pointer;
-    height: 50px;
+    height: 3rem;
 }
 
 header .container .row .btn-topo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 3px;
 }
 
 header .container .row .btn-topo input[type="search"] {
@@ -89,6 +88,42 @@ header .container .row .btn-topo button:hover {
     background: #0056b3;
 }
 
+header .container .row .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 7px;
+    margin: 0 0 0 3px;
+}
+
+header .container .row .login i {
+    font-size: 20px;
+    color: #007bff;
+}
+
+header .container .row .login button {
+    background: #007bff;
+    border: none;
+    padding: 6px 7px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+header .container .row .login a {
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.1s ease;
+}
+header .container .row .login a:hover {
+    color: #c6d7e9;
+}
+
+/* Header END*/
+
 /* Temp Start*/
 
 .temp {
@@ -102,7 +137,7 @@ header .container .row .btn-topo button:hover {
 .temp .top {
     display: flex;
     justify-content: space-between;
-    padding: 5px 10px;
+    padding: 25px 10px;
 }
 
 .temp .city-txt {
@@ -185,7 +220,6 @@ header .container .row .btn-topo button:hover {
 }
 
 .temp .days-info {
-    margin-top: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -207,8 +241,12 @@ header .container .row .btn-topo button:hover {
 
 
 /* Indicis Start*/
+.indices {
+    padding: 0 10px;
+}
 
 .indices .l-d-icons {
+    margin: 5px 0px 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -255,6 +293,7 @@ header .container .row .btn-topo button:hover {
 .indices #chuva-indice,
 .indices #vento-indice,
 .indices #umidade-indice h1 {
+    color: #fcfcfc;
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
 }

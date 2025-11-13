@@ -46,7 +46,7 @@ async function recifeInfo () {
     <img src="${objRecife.forecast.forecastday[0].hour[9].condition.icon}" alt="Icone">
     <p>Manhã</p>`
     document.querySelector('#icon-tarde').innerHTML = `
-    <img src="${objRecife.forecast.forecastday[0].hour[21].condition.icon}" alt="Icone">
+    <img src="${objRecife.forecast.forecastday[0].hour[15].condition.icon}" alt="Icone">
     <p>Tarde</p>`
     document.querySelector('#icon-noite').innerHTML = `
     <img src="${objRecife.forecast.forecastday[0].hour[21].condition.icon}" alt="Icone">
