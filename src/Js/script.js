@@ -1,150 +1,301 @@
-const date = new Date().toISOString().split('T')[0].split('-').reverse().slice(0, 2).join('/');
+// script.js
 const apiKey = "91ca1d9af6924a7598504746252210";
-const apiRecife = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Recife&days=7&lang=pt`;
 
-async function recifeInfo () {
-    const recifeResp = await fetch(apiRecife);
-    const objRecife = await recifeResp.json();
-
-    const tempCel = document.getElementById('temp-cel');
-    tempCel.innerHTML = `
-    <img src="${objRecife.current.condition.icon}" alt="Icone">
-    <h1 class="cel">${objRecife.current.temp_c}°C</h1>`
-
-    document.querySelector('#Chuva').innerHTML = `Chuva: ${objRecife.forecast.forecastday[0].day.daily_chance_of_rain}%`;
-    document.querySelector('#Humidade').innerHTML = `Umidade: ${objRecife.current.humidity}%`;
-    document.querySelector('#Vento').innerHTML = `Vento: ${objRecife.current.wind_kph} km/h`;
-    document.querySelector('#skye-info').innerHTML = objRecife.current.condition.text;
-    document.querySelector('#dat').innerHTML = objRecife.location.localtime;
-
-    /* TDC Start */
-    document.querySelector('#tdc').innerHTML = `
-    <i class="bi bi-star"></i>
-    <h1>Previsão do tempo Hoje {${date}} ${objRecife.location.name} </h1>
-    <i class="bi bi-geo-alt-fill"></i>`
+async function buscaApi() {
+    const cityInput = document.getElementById('city_name');
+    const cityName = cityInput.value.trim() || 'Recife';
     
-    /* L-E Start */
-    document.querySelector('#txt-l-e').innerHTML = `
-    <h1>${objRecife.current.condition.text}</h1>
-    <p>${objRecife.forecast.forecastday[0].day.condition.text}</p>`;
-    document.querySelector('#temperatura').innerHTML = `
-    <h1>Temperatura </h1>
-    <p><span class"max-temp"><i class="bi bi-chevron-down"></i></span> ${objRecife.forecast.forecastday[0].day.maxtemp_c}'°C'  <span class="min-temp"><i class="bi bi-chevron-up"></i></span>${objRecife.forecast.forecastday[0].day.mintemp_c} </p>`
-    document.querySelector('#chuva-indice').innerHTML = `
-    <h1>Chuva</h1>
-    <p>${objRecife.forecast.forecastday[0].day.daily_chance_of_rain}%</p>`
-    document.querySelector('#vento-indice').innerHTML = `
-    <h1>Vento</h1>
-    <p>${objRecife.current.wind_kph} km/h</p>`
-    document.querySelector('#umidade-indice').innerHTML = `
-    <h1>Umidade</h1>
-    <p>${objRecife.current.humidity}%</p>`
-    /* L-E End */
-
-    /* L-D Start */
-    document.querySelector('#icon-manha').innerHTML = `
-    <img src="${objRecife.forecast.forecastday[0].hour[9].condition.icon}" alt="Icone">
-    <p>Manhã</p>`
-    document.querySelector('#icon-tarde').innerHTML = `
-    <img src="${objRecife.forecast.forecastday[0].hour[15].condition.icon}" alt="Icone">
-    <p>Tarde</p>`
-    document.querySelector('#icon-noite').innerHTML = `
-    <img src="${objRecife.forecast.forecastday[0].hour[21].condition.icon}" alt="Icone">
-    <p>Noite</p>`
-    /* L-D End */
-
-    /* TDC End */
-
-    /* Noticas Start*/
-    document.querySelector(".card").innerHTML = `
-    <a href="https://www.climatempo.com.br/busca?q=${encodeURIComponent("Recife")}">Saiba mais em ClimaTempo.com</a>`
-    document.querySelector(".card-1").innerHTML = `
-    <a href="https://g1.globo.com/busca?q=${encodeURIComponent("Previsão do tempo em Recife")}">Saiba mais em G1.com</a>`
-    document.querySelector(".card-2").innerHTML = `
-    <a href="https://www.google.com/search?q=${encodeURIComponent("Noticias do tempo em Recife")}">Saiba mais no google.com</a>`
-
-    mostrarPrevisao(objRecife);
-}
-recifeInfo();
-
-async function buscaApi () {
-    const city = document.getElementById('city_name').value.trim();
-    if (!city) {
-        alert("Digite o nome de uma cidade");
-        return;
-    }
-
-    
-    const api = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&lang=pt`;
-
     try {
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=7&lang=pt`);
+        const data = await response.json();
+        
+        if (data.error) {
+            alert('Cidade não encontrada. Verifique o nome e tente novamente.');
+            return;
+        }
+        
+        updateWeatherInfo(data);
+        updateHourlyForecast(data);
+        updateDayCards(data);
+        updateIndicesCards(data);
+        
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        alert('Erro ao buscar dados da cidade. Tente novamente.');
+    }
+}
+
+function updateWeatherInfo(data) {
+    const current = data.current;
+    const location = data.location;
+    const forecast = data.forecast.forecastday[0];
     
-        const respApi = await fetch(api);
-        const objApi = await respApi.json();
-
-        console.log(objApi);
-
-        const cityName = document.getElementById('city');
-        cityName.innerHTML = objApi.location.name;
-
-        const tempCel = document.getElementById('temp-cel');
-        tempCel.innerHTML = `
-        <img src="${objApi.current.condition.icon}" alt="Icone">
-        <h1 class="cel">${objApi.current.temp_c}°C</h1>`
-
-        document.querySelector('#Chuva').innerHTML = `Chuva: ${objApi.current.precip_mm}mm`;
-        document.querySelector('#Humidade').innerHTML = `Umidade: ${objApi.current.humidity}%`;
-        document.querySelector('#Vento').innerHTML = `Vento: ${objApi.current.wind_kph} km/h`;
-        document.querySelector('#skye-info').innerHTML = objApi.current.condition.text;
-        document.querySelector('#dat').innerHTML = objApi.location.localtime;
-        document.querySelector('#tdc').innerHTML = `
-        <i class="bi bi-star"></i>
-        <h1>Previsão do tempo Hoje {${date}} ${objApi.location.name} </h1>
-        <i class="bi bi-geo-alt-fill"></i>`
-
-        document.querySelector(".card").innerHTML = `
-        <a href="https://www.climatempo.com.br/busca?q=${encodeURIComponent(city)}">Saiba mais em ClimaTempo.com</a>`
-        document.querySelector(".card-1").innerHTML = `
-        <a href="https://g1.globo.com/busca?q=${encodeURIComponent('Previsão do tempo em ' + city)}">Saiba mais em G1.com</a>`
-        document.querySelector(".card-2").innerHTML = `
-        <a href="https://www.google.com/search?q=${encodeURIComponent('Noticias do tempo em ' + city)}">Saiba mais no google.com</a>`
-
-
-        mostrarPrevisao(objApi);
-    }
-    catch (error) {
-        console.error("Erro ao buscar dados:", error);
-        alert("Cidade não encontrada ou erro na API.");
-    }
+    // Atualizar título principal
+    document.querySelector('.local-txt h1').textContent = `Previsão do tempo Hoje ${formatDate(location.localtime)} ${location.name} (${location.region})`;
+    
+    // Descrição do tempo
+    document.querySelector('.temp-txt h1').textContent = `Hoje será parecido com ontem`;
+    document.querySelector('.temp-txt p').textContent = current.condition.text;
+    
+    // Atualizar índices principais
+    const tempIndices = document.querySelector('.temp-indices');
+    tempIndices.innerHTML = `
+        <div class="chuva">
+            <h3>Chuva</h3>
+            <div class="value">${forecast.day.daily_chance_of_rain}%</div>
+        </div>
+        <div class="vento">
+            <h3>Vento</h3>
+            <div class="value">${current.wind_kph} km/h</div>
+        </div>
+        <div class="umidade">
+            <h3>Umidade</h3>
+            <div class="value">${current.humidity}%</div>
+        </div>
+        <div class="sol">
+            <h3>Sol</h3>
+            <div class="value">${forecast.astro.sunrise} - ${forecast.astro.sunset}</div>
+        </div>
+    `;
 }
 
-function mostrarPrevisao(objApi) {
-    const diasSemana = document.getElementById("dias-semana");
-    diasSemana.innerHTML = "";
-
-    const hoje = new Date().toISOString().split('T')[0];
-    const dias = objApi.forecast.forecastday.filter(day => day.date >= hoje);
-
-    dias.forEach(day => {
-        const data = new Date(day.date);
-
-        const opcoes = { weekday: 'long'};
-        let dataFormatada = data.toLocaleDateString('pt-BR', opcoes);
-
-        dataFormatada = dataFormatada
-            .replace('-feira', '')
-            .replace('feira', '')
-            .replace(/^\p{L}/u, c => c.toUpperCase());
-
-        const card = document.createElement("div");
-        card.classList.add("forecast-card");
-
-        card.innerHTML = `
-            <p class="forecast-date">${dataFormatada}</p>
-            <img src="${day.day.condition.icon}" alt="${day.day.condition.text}">
-            <p class="forecast-temp">${day.day.maxtemp_c}°C</p>
+function updateHourlyForecast(data) {
+    const hourlyData = data.forecast.forecastday[0].hour;
+    const grafico = document.querySelector('.grafico');
+    
+    // Criar gráfico simplificado com as temperaturas hora a hora
+    let hourlyHTML = `
+        <div class="hourly-forecast" style="display: flex; justify-content: space-between; align-items: end; height: 200px; padding: 20px 0; gap: 10px;">
+    `;
+    
+    // Pegar apenas algumas horas para exibir (a cada 3 horas)
+    hourlyData.filter((_, index) => index % 3 === 0).forEach(hour => {
+        const hourTime = new Date(hour.time).getHours();
+        const temp = Math.round(hour.temp_c);
+        const height = Math.max(((temp - 20) / 15) * 100, 30);
+        const iconUrl = hour.condition.icon.startsWith('//') ? 'https:' + hour.condition.icon : hour.condition.icon;
+        const condition = hour.condition.text;
+        
+        hourlyHTML += `
+            <div class="hour-item" style="display: flex; flex-direction: column; align-items: center; justify-content: end; height: 100%; flex: 1;">
+                <div style="margin-bottom: 10px; text-align: center;">
+                    <img src="${iconUrl}" alt="${condition}" style="width: 32px; height: 32px;">
+                </div>
+                <div style="background: var(--primary-color); width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
+                <span style="font-size: 12px; margin-bottom: 5px;">${hourTime}h</span>
+                <span style="font-weight: bold; font-size: 14px;">${temp}°</span>
+            </div>
         `;
-
-        diasSemana.appendChild(card);
     });
+    
+    hourlyHTML += `</div>`;
+    grafico.innerHTML = hourlyHTML;
 }
+
+function updateDayCards(data) {
+    const forecast = data.forecast.forecastday[0];
+    const current = data.current;
+    const cardDays = document.querySelector('.card-days');
+
+    // Usar o ícone e condição atual
+    const iconUrl = current.condition.icon.startsWith('//') ? 'https:' + current.condition.icon : current.condition.icon;
+    const condition = current.condition.text;
+
+    // Temperaturas para diferentes períodos do dia
+    const dayPeriods = [
+        { period: 'Madrugada', temp: `${Math.round(forecast.hour[2].temp_c)}°`, hour: forecast.hour[2] },
+        { period: 'Manhã', temp: `${Math.round(forecast.hour[8].temp_c)}°`, hour: forecast.hour[8] },
+        { period: 'Tarde', temp: `${Math.round(forecast.hour[14].temp_c)}°`, hour: forecast.hour[14] },
+        { period: 'Noite', temp: `${Math.round(forecast.hour[20].temp_c)}°`, hour: forecast.hour[20] }
+    ];
+    
+    cardDays.innerHTML = dayPeriods.map(period => {
+        const periodIconUrl = period.hour.condition.icon.startsWith('//') ? 'https:' + period.hour.condition.icon : period.hour.condition.icon;
+        const periodCondition = period.hour.condition.text;
+        
+        return `
+            <div class="${period.period.toLowerCase()}">
+                <img src="${periodIconUrl}" alt="${periodCondition}">
+                <h4>${period.period}</h4>
+                <div class="temp">${period.temp}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+function updateIndicesCards(data) {
+    const current = data.current;
+    const forecast = data.forecast.forecastday[0];
+    
+    const cardsContainer = document.querySelector('.cards');
+    const cardsData = [
+        {
+            title: 'Churrasco',
+            icon: 'bi-fire',
+            status: getChurrascoStatus(forecast.day.daily_chance_of_rain, current.temp_c),
+            description: getChurrascoDescription(forecast.day.daily_chance_of_rain, current.temp_c)
+        },
+        {
+            title: 'Mosquitos',
+            icon: 'bi-bug',
+            status: getMosquitoStatus(current.humidity),
+            description: getMosquitoDescription(current.humidity)
+        },
+        {
+            title: 'Frizz',
+            icon: 'bi-droplet',
+            status: getFrizzStatus(current.humidity),
+            description: getFrizzDescription(current.humidity)
+        },
+        {
+            title: 'Ressecamento da Pele',
+            icon: 'bi-person',
+            status: getPeleStatus(current.humidity),
+            description: getPeleDescription(current.humidity)
+        },
+        {
+            title: 'Gripe e Resfriado',
+            icon: 'bi-thermometer',
+            status: getGripeStatus(current.temp_c),
+            description: getGripeDescription(current.temp_c)
+        },
+        {
+            title: 'Índice UV',
+            icon: 'bi-sun',
+            status: getUVStatus(current.uv),
+            description: getUVDescription(current.uv)
+        },
+        {
+            title: 'Arco-íris',
+            icon: 'bi-rainbow',
+            status: getArcoirisStatus(forecast.day.daily_chance_of_rain),
+            description: getArcoirisDescription(forecast.day.daily_chance_of_rain)
+        }
+    ];
+    
+    cardsContainer.innerHTML = cardsData.map(card => `
+        <div class="card">
+            <div class="txt-card">
+                <h2>${card.title}</h2>
+            </div>
+            <div class="infor-card">
+                <div class="img-card">
+                    <i class="bi ${card.icon}"></i>
+                </div>
+                <div class="txt-infos">
+                    <h1>${card.status}</h1>
+                    <p>${card.description}</p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Funções auxiliares para determinar os status dos índices
+function getChurrascoStatus(chuva, temp) {
+    if (chuva < 30 && temp > 20) return 'Tá valendo';
+    if (chuva < 50 && temp > 18) return 'Dá pra fazer';
+    return 'Melhor adiar';
+}
+
+function getChurrascoDescription(chuva, temp) {
+    if (chuva < 30 && temp > 20) return 'Condições ideais para churrasco. Aproveite!';
+    if (chuva < 50 && temp > 18) return 'Condições razoáveis. Fique de olho no tempo.';
+    return 'Chuva e temperatura baixa. Melhor remarcar.';
+}
+
+function getMosquitoStatus(humidity) {
+    if (humidity > 80) return 'Alto';
+    if (humidity > 60) return 'Médio';
+    return 'Baixo';
+}
+
+function getMosquitoDescription(humidity) {
+    if (humidity > 80) return 'Condições ideais para mosquitos. Use repelente.';
+    if (humidity > 60) return 'Condições moderadas. Tome cuidados.';
+    return 'Poucos mosquitos. Condições desfavoráveis para eles.';
+}
+
+function getFrizzStatus(humidity) {
+    if (humidity > 75) return 'Alto';
+    if (humidity > 55) return 'Moderado';
+    return 'Baixo';
+}
+
+function getFrizzDescription(humidity) {
+    if (humidity > 75) return 'Umidade alta. Frizz intenso esperado.';
+    if (humidity > 55) return 'Umidade moderada. Frizz pode aparecer.';
+    return 'Umidade baixa. Pouco frizz.';
+}
+
+function getPeleStatus(humidity) {
+    if (humidity < 40) return 'Alto';
+    if (humidity < 60) return 'Moderado';
+    return 'Baixo';
+}
+
+function getPeleDescription(humidity) {
+    if (humidity < 40) return 'Ar seco. Hidrate a pele frequentemente.';
+    if (humidity < 60) return 'Umidade adequada. Pele confortável.';
+    return 'Umidade alta. Pele bem hidratada.';
+}
+
+function getGripeStatus(temp) {
+    if (temp < 18) return 'Alto';
+    if (temp < 22) return 'Moderado';
+    return 'Baixo';
+}
+
+function getGripeDescription(temp) {
+    if (temp < 18) return 'Temperatura baixa. Maior risco de gripes.';
+    if (temp < 22) return 'Temperatura amena. Cuidados moderados.';
+    return 'Temperatura agradável. Baixo risco.';
+}
+
+function getUVStatus(uv) {
+    if (uv >= 11) return 'Extremo';
+    if (uv >= 8) return 'Muito Alto';
+    if (uv >= 6) return 'Alto';
+    if (uv >= 3) return 'Moderado';
+    return 'Baixo';
+}
+
+function getUVDescription(uv) {
+    if (uv >= 11) return 'Radiação extrema. Evite sol entre 10h-16h.';
+    if (uv >= 8) return 'Radiação muito alta. Use protetor solar.';
+    if (uv >= 6) return 'Radiação alta. Proteção necessária.';
+    if (uv >= 3) return 'Radiação moderada. Proteção recomendada.';
+    return 'Radiação baixa. Proteção mínima necessária.';
+}
+
+function getArcoirisStatus(chuva) {
+    if (chuva > 60) return 'Alta';
+    if (chuva > 30) return 'Média';
+    return 'Baixa';
+}
+
+function getArcoirisDescription(chuva) {
+    if (chuva > 60) return 'Alta probabilidade de formação de arco-íris!';
+    if (chuva > 30) return 'Possibilidade moderada de arco-íris.';
+    return 'Pouca chance de arco-íris hoje.';
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    return `${day}/${month}`;
+}
+
+// Inicializar a página
+document.addEventListener('DOMContentLoaded', function() {
+    // Buscar dados para Recife por padrão
+    buscaApi();
+    
+    // Adicionar evento de tecla Enter na busca
+    document.getElementById('city_name').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            buscaApi();
+        }
+    });
+});
