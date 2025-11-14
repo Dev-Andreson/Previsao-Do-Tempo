@@ -24,8 +24,8 @@ body {
   --gray: #9b9b9b;
 }
 
-/* ---------- CARD CONTAINER ---------- */
-.card {
+
+main .card {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -35,8 +35,6 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
-
-/* ---------- NAV (LEFT SIDE) ---------- */
 
 .active-bar {
   position: absolute;
@@ -48,14 +46,13 @@ body {
   transition: top 0.4s ease-in-out;
 }
 
-/* ---------- HERO (BLUE SIDE) ---------- */
-.hero {
+main .card .hero {
   width: 70vw;
   background: var(--primary);
   color: #fff;
 }
 
-.hero-inner {
+main .card .hero .hero-inner {
   height: 100%;
   top: 0;
   left: 0;
@@ -78,26 +75,25 @@ body {
   left: 30px;
 }
 
-.hero-content h2 {
+.hero-content .hero-txt h2 {
   font-size: 26px;
   margin-bottom: 6px;
   color: var(--dark);
 }
 
-.hero-content h3 {
+.hero-content .hero-txt h3 {
   font-size: 14px;
   opacity: 0.8;
   color: var(--dark);
 }
 
-.hero-content img {
+.hero-content .hero-txt img {
   width: 100%;
   height: 100%;
   object-fit:cover;
 }
 
-/* ---------- FORM AREA ---------- */
-.form {
+main .card .form {
   width: 30vw;
   height: 100%;
   display: flex;
@@ -108,12 +104,12 @@ body {
   box-shadow: -2px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.form img {
+main .card .form img {
   width: 250px;
   padding-bottom: 30px;
 }
 
-.forms {
+main .card .form .forms {
   padding: 0 16px;
   width: 100%;
   top: 0;
@@ -192,7 +188,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ---------- LOADING SPINNER ---------- */
 .loading {
   display: none;
   width: 40px;
@@ -208,9 +203,6 @@ a:hover {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-
-/* ---------- RESPONSIVIDADE ---------- */
 
 /* Tablets (até 900px) */
 @media (max-width: 900px) {

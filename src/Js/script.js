@@ -81,7 +81,7 @@ function updateHourlyForecast(data) {
                 <div style="margin-bottom: 10px; text-align: center;">
                     <img src="${iconUrl}" alt="${condition}" style="width: 32px; height: 32px;">
                 </div>
-                <div style="background: var(--primary-color); width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
+                <div style="background: blue; width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
                 <span style="font-size: 12px; margin-bottom: 5px;">${hourTime}h</span>
                 <span style="font-weight: bold; font-size: 14px;">${temp}°</span>
             </div>

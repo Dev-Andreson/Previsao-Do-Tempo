@@ -1,0 +1,108 @@
+:root {
+    --primary-color: #2C6CBF;
+    --secondary-color: #F0F8FF;
+    --text-color: #ffffff;
+    --light-text: #eceaeab0;
+    --border-color: #E0E0E0;
+    --card-bg: #086afd;
+    --background: #063df0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+
+header .container .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container .row .logo {
+    height: 40px;
+}
+
+header .container .row .btn-topo {
+    display: flex;
+    align-items: center;
+    background: var(--secondary-color);
+    border-radius: 25px;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+header .container .row .btn-topo i.bi-geo-alt-fill {
+    left: -20px;
+    position: absolute;
+    color: rgba(66, 66, 66, 0.671);
+    font-size: 15px;
+}
+
+header .container .row .btn-topo input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 400px;
+}
+
+header .container .row .btn-topo button {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+header .container .row .login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header .container .row .login i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+header .container .row .login a {
+    color: inherit;
+}
+
+header .container .row .login button {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+header .container .row .login button:hover {
+    background: var(--primary-color);
+    color: white;
+}
