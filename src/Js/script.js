@@ -2,33 +2,39 @@
 const apiKey = "91ca1d9af6924a7598504746252210";
 
 async function buscaApi() {
-    const cityInput = document.getElementById('city_name');
-    const cityName = cityInput.value.trim() || 'Recife';
-    
+    const cityInput = document.getElementById('city_name').value.trim() || 'Recife';
+
     try {
-        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=7&lang=pt`);
-        const data = await response.json();
-        
-        if (data.error) {
-            alert('Cidade não encontrada. Verifique o nome e tente novamente.');
+        const resp = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityInput}&days=7&lang=pt`);
+        const obj = await resp.json();
+
+        if (obj.error) {
+            alert('Cidade não encontrada. Verifique o nome e tente novamente.')
             return;
         }
+
+        document.querySelector('.txt-noticia-g1').innerHTML = `
+        <p>Saiba mais em <a href="https://g1.globo.com/busca?q=previsão%20do%20tempo%20${cityInput}" target="_blank">www.G1.com</a></p>`
+        document.querySelector('.txt-noticia-google').innerHTML = `
+        <p>Saiba mais em <a href="https://www.google.com/search?q=previsão%20do%20tempo%20${cityInput}" target="_blank">www.Google.com</a></p>`
+        document.querySelector('.txt-noticia-youtube').innerHTML = `
+        <p>Saiba mais em <a href="https://www.youtube.com/results?search_query=previsão%20do%20tempo%20${cityInput}" target="_blank">www.youtube.com</a></p>`
         
-        updateWeatherInfo(data);
-        updateHourlyForecast(data);
-        updateDayCards(data);
-        updateIndicesCards(data);
-        
-    } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-        alert('Erro ao buscar dados da cidade. Tente novamente.');
+        updateWeatherInfo(obj);
+        updateHourlyForecast(obj);
+        updateDayCards(obj);
+        updateIndicesCards(obj);
+    }
+    catch (error) {
+        console.error('Erro ao buscar dados:' , error);
+        alert('Erro ao buscar dados da cidade. Tente novamente')
     }
 }
 
-function updateWeatherInfo(data) {
-    const current = data.current;
-    const location = data.location;
-    const forecast = data.forecast.forecastday[0];
+function updateWeatherInfo(obj) {
+    const current = obj.current;
+    const location = obj.location;
+    const forecast = obj.forecast.forecastday[0];
     
     // Atualizar título principal
     document.querySelector('.local-txt h1').textContent = `Previsão do tempo Hoje ${formatDate(location.localtime)} ${location.name} (${location.region})`;
@@ -59,8 +65,8 @@ function updateWeatherInfo(data) {
     `;
 }
 
-function updateHourlyForecast(data) {
-    const hourlyData = data.forecast.forecastday[0].hour;
+function updateHourlyForecast(obj) {
+    const hourlyData = obj.forecast.forecastday[0].hour;
     const grafico = document.querySelector('.grafico');
     
     // Criar gráfico simplificado com as temperaturas hora a hora
@@ -92,9 +98,9 @@ function updateHourlyForecast(data) {
     grafico.innerHTML = hourlyHTML;
 }
 
-function updateDayCards(data) {
-    const forecast = data.forecast.forecastday[0];
-    const current = data.current;
+function updateDayCards(obj) {
+    const forecast = obj.forecast.forecastday[0];
+    const current = obj.current;
     const cardDays = document.querySelector('.card-days');
 
     // Usar o ícone e condição atual
@@ -123,9 +129,9 @@ function updateDayCards(data) {
     }).join('');
 }
 
-function updateIndicesCards(data) {
-    const current = data.current;
-    const forecast = data.forecast.forecastday[0];
+function updateIndicesCards(obj) {
+    const current = obj.current;
+    const forecast = obj.forecast.forecastday[0];
     
     const cardsContainer = document.querySelector('.cards');
     const cardsData = [
