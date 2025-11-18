@@ -57,7 +57,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
-      <a href="#" title="defina o título do link">
+      <a href=".section-fim .container" title="Dev.andreson">
         <img src="/assets/midia/adernos.jpeg" width="100px;" alt="Foto do Andreson"/><br>
         <sub>
           <b>Andreson Rodrigues</b>

@@ -296,8 +296,9 @@ main .container-lateral {
     gap: 15px;
 }
 
-.section-meio .container .row .indices-click > div {
+.section-meio .container .row .indices-click > button {
     background: var(--card-bg);
+    border: none;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -306,8 +307,10 @@ main .container-lateral {
     transition: all 0.3s;
 }
 
-.section-meio .container .row .indices-click > div:hover {
+.section-meio .container .row .indices-click > button:hover {
     transform: translateY(-2px);
+    color: var(--background);
+    background: var(--border-color);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -340,20 +343,38 @@ main .container-lateral {
     justify-content: center;
 }
 
+.section-fim .container .row .card-noticias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 0;
+}
+.section-fim .container .row .card-noticias h1 {
+    text-align: center;
+    margin: 15px;
+}
+
 .section-fim .container .row .card-noticias .noticia {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background: var(--card-bg);
     border-radius: 15px;
     padding: 30px;
-    margin: 0 10px;
+    margin: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     width: 300px;
     text-align: center;
 }
 
+.section-fim .container .row .card-noticias .noticia img {
+    width: 30%;
+    border-radius: 4px;
+}
+
 .section-fim .container .row .card-noticias .noticia .txt-noticia-g1 p,
 .section-fim .container .row .card-noticias .noticia .txt-noticia-google p,
 .section-fim .container .row .card-noticias .noticia .txt-noticia-youtube p {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--secondary-color);
 }
 /* Section-fim End*/

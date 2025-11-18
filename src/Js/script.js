@@ -1,6 +1,10 @@
-// script.js
+// Chave da API do WeatherAPI
 const apiKey = "91ca1d9af6924a7598504746252210";
 
+// Variável global para armazenar os dados do tempo
+let weatherData = null;
+
+// Função para buscar dados da API
 async function buscaApi() {
     const cityInput = document.getElementById('city_name').value.trim() || 'Recife';
 
@@ -13,24 +17,28 @@ async function buscaApi() {
             return;
         }
 
+        // Salvar dados globalmente
+        weatherData = obj;
+
         document.querySelector('.txt-noticia-g1').innerHTML = `
-        <p>Saiba mais em <a href="https://g1.globo.com/busca?q=previsão%20do%20tempo%20${cityInput}" target="_blank">www.G1.com</a></p>`
+        <p>Saiba mais em <a href="https://g1.globo.com/busca?q=previsão%20do%20tempo%20${cityInput}" target="_blank">www.G1.com</a></p>`;
         document.querySelector('.txt-noticia-google').innerHTML = `
-        <p>Saiba mais em <a href="https://www.google.com/search?q=previsão%20do%20tempo%20${cityInput}" target="_blank">www.Google.com</a></p>`
+        <p>Saiba mais em <a href="https://www.google.com/search?q=previsão%20do%20tempo%20${cityInput}" target="_blank">www.Google.com</a></p>`;
         document.querySelector('.txt-noticia-youtube').innerHTML = `
-        <p>Saiba mais em <a href="https://www.youtube.com/results?search_query=previsão%20do%20tempo%20${cityInput}" target="_blank">www.youtube.com</a></p>`
+        <p>Saiba mais em <a href="https://www.youtube.com/results?search_query=previsão%20do%20tempo%20${cityInput}" target="_blank">www.youtube.com</a></p>`;
         
         updateWeatherInfo(obj);
-        updateHourlyForecast(obj);
+        showTemperature();
         updateDayCards(obj);
         updateIndicesCards(obj);
     }
     catch (error) {
         console.error('Erro ao buscar dados:' , error);
-        alert('Erro ao buscar dados da cidade. Tente novamente')
+        alert('Erro ao buscar dados da cidade. Tente novamente');
     }
 }
 
+// Funções para atualizar a interface com os dados da API
 function updateWeatherInfo(obj) {
     const current = obj.current;
     const location = obj.location;
@@ -65,16 +73,17 @@ function updateWeatherInfo(obj) {
     `;
 }
 
-function updateHourlyForecast(obj) {
-    const hourlyData = obj.forecast.forecastday[0].hour;
+// Função para mostrar temperatura
+function showTemperature() {
+    if (!weatherData) return;
+    
+    const hourlyData = weatherData.forecast.forecastday[0].hour;
     const grafico = document.querySelector('.grafico');
     
-    // Criar gráfico simplificado com as temperaturas hora a hora
     let hourlyHTML = `
         <div class="hourly-forecast" style="display: flex; justify-content: space-between; align-items: end; height: 200px; padding: 20px 0; gap: 10px;">
     `;
     
-    // Pegar apenas algumas horas para exibir (a cada 3 horas)
     hourlyData.filter((_, index) => index % 3 === 0).forEach(hour => {
         const hourTime = new Date(hour.time).getHours();
         const temp = Math.round(hour.temp_c);
@@ -87,7 +96,7 @@ function updateHourlyForecast(obj) {
                 <div style="margin-bottom: 10px; text-align: center;">
                     <img src="${iconUrl}" alt="${condition}" style="width: 32px; height: 32px;">
                 </div>
-                <div style="background: blue; width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
+                <div style="background: #ff6b6b; width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
                 <span style="font-size: 12px; margin-bottom: 5px;">${hourTime}h</span>
                 <span style="font-weight: bold; font-size: 14px;">${temp}°</span>
             </div>
@@ -98,6 +107,109 @@ function updateHourlyForecast(obj) {
     grafico.innerHTML = hourlyHTML;
 }
 
+// Função para mostrar chuva
+function showRain() {
+    if (!weatherData) return;
+    
+    const hourlyData = weatherData.forecast.forecastday[0].hour;
+    const grafico = document.querySelector('.grafico');
+    
+    let hourlyHTML = `
+        <div class="hourly-forecast" style="display: flex; justify-content: space-between; align-items: end; height: 200px; padding: 20px 0; gap: 10px;">
+    `;
+    
+    hourlyData.filter((_, index) => index % 3 === 0).forEach(hour => {
+        const hourTime = new Date(hour.time).getHours();
+        const rain = hour.chance_of_rain;
+        const height = Math.max((rain / 100) * 150, 30);
+        const iconUrl = hour.condition.icon.startsWith('//') ? 'https:' + hour.condition.icon : hour.condition.icon;
+        const condition = hour.condition.text;
+        
+        hourlyHTML += `
+            <div class="hour-item" style="display: flex; flex-direction: column; align-items: center; justify-content: end; height: 100%; flex: 1;">
+                <div style="margin-bottom: 10px; text-align: center;">
+                    <img src="${iconUrl}" alt="${condition}" style="width: 32px; height: 32px;">
+                </div>
+                <div style="background: #4dabf7; width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
+                <span style="font-size: 12px; margin-bottom: 5px;">${hourTime}h</span>
+                <span style="font-weight: bold; font-size: 14px;">${rain}%</span>
+            </div>
+        `;
+    });
+    
+    hourlyHTML += `</div>`;
+    grafico.innerHTML = hourlyHTML;
+}
+
+// Função para mostrar vento
+function showWind() {
+    if (!weatherData) return;
+    
+    const hourlyData = weatherData.forecast.forecastday[0].hour;
+    const grafico = document.querySelector('.grafico');
+    
+    let hourlyHTML = `
+        <div class="hourly-forecast" style="display: flex; justify-content: space-between; align-items: end; height: 200px; padding: 20px 0; gap: 10px;">
+    `;
+    
+    hourlyData.filter((_, index) => index % 3 === 0).forEach(hour => {
+        const hourTime = new Date(hour.time).getHours();
+        const wind = Math.round(hour.wind_kph);
+        const height = Math.max((wind / 50) * 150, 30);
+        const iconUrl = hour.condition.icon.startsWith('//') ? 'https:' + hour.condition.icon : hour.condition.icon;
+        const condition = hour.condition.text;
+        
+        hourlyHTML += `
+            <div class="hour-item" style="display: flex; flex-direction: column; align-items: center; justify-content: end; height: 100%; flex: 1;">
+                <div style="margin-bottom: 10px; text-align: center;">
+                    <img src="${iconUrl}" alt="${condition}" style="width: 32px; height: 32px;">
+                </div>
+                <div style="background: #51cf66; width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
+                <span style="font-size: 12px; margin-bottom: 5px;">${hourTime}h</span>
+                <span style="font-weight: bold; font-size: 14px;">${wind} km/h</span>
+            </div>
+        `;
+    });
+    
+    hourlyHTML += `</div>`;
+    grafico.innerHTML = hourlyHTML;
+}
+
+// Função para mostrar umidade
+function showHumidity() {
+    if (!weatherData) return;
+    
+    const hourlyData = weatherData.forecast.forecastday[0].hour;
+    const grafico = document.querySelector('.grafico');
+    
+    let hourlyHTML = `
+        <div class="hourly-forecast" style="display: flex; justify-content: space-between; align-items: end; height: 200px; padding: 20px 0; gap: 10px;">
+    `;
+    
+    hourlyData.filter((_, index) => index % 3 === 0).forEach(hour => {
+        const hourTime = new Date(hour.time).getHours();
+        const humidity = hour.humidity;
+        const height = Math.max((humidity / 100) * 150, 30);
+        const iconUrl = hour.condition.icon.startsWith('//') ? 'https:' + hour.condition.icon : hour.condition.icon;
+        const condition = hour.condition.text;
+        
+        hourlyHTML += `
+            <div class="hour-item" style="display: flex; flex-direction: column; align-items: center; justify-content: end; height: 100%; flex: 1;">
+                <div style="margin-bottom: 10px; text-align: center;">
+                    <img src="${iconUrl}" alt="${condition}" style="width: 32px; height: 32px;">
+                </div>
+                <div style="background: #339af0; width: 100%; max-width: 40px; height: ${height}px; border-radius: 5px; margin-bottom: 10px;"></div>
+                <span style="font-size: 12px; margin-bottom: 5px;">${hourTime}h</span>
+                <span style="font-weight: bold; font-size: 14px;">${humidity}%</span>
+            </div>
+        `;
+    });
+    
+    hourlyHTML += `</div>`;
+    grafico.innerHTML = hourlyHTML;
+}
+
+// Função para atualizar os cards de diferentes períodos do dia
 function updateDayCards(obj) {
     const forecast = obj.forecast.forecastday[0];
     const current = obj.current;
@@ -129,6 +241,7 @@ function updateDayCards(obj) {
     }).join('');
 }
 
+// Função para atualizar os cards dos índices especiais
 function updateIndicesCards(obj) {
     const current = obj.current;
     const forecast = obj.forecast.forecastday[0];

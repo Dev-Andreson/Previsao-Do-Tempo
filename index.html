@@ -82,10 +82,18 @@
                         <div class="grafico"></div>
                         <div class="days"></div>
                         <div class="indices-click">
-                            <div class="grafico-temperatura"><i class="bi bi-thermometer-high"></i></div>
-                            <div class="grafico-chuva"><i class="bi bi-cloud-drizzle"></i></div>
-                            <div class="grafico-vento"><i class="bi bi-wind"></i></div>
-                            <div class="grafico-umidade"><i class="bi bi-moisture"></i></div>
+                            <button onclick="showTemperature()" class="grafico-temperatura">
+                                <i class="bi bi-thermometer-high"></i>
+                            </button>
+                            <button onclick="showRain()" class="grafico-chuva">
+                                <i class="bi bi-cloud-drizzle"></i>
+                            </button>
+                            <button onclick="showWind()" class="grafico-vento">
+                                <i class="bi bi-wind"></i>
+                            </button>
+                            <button onclick="showHumidity()" class="grafico-umidade">
+                                <i class="bi bi-moisture"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -94,14 +102,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="card-noticias">
-                            <h1>Notícias sobre o clima</h1>
                             <div class="noticia">
+                                <img src="https://psicologafabiola.com.br/wp-content/uploads/2023/10/Entrevista-para-G1-sobre-Divorcio-1.jpg" alt="logo G1">
                                 <div class="txt-noticia-g1"></div>
                             </div>
                             <div class="noticia">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="Logo YouTube">
                                 <div class="txt-noticia-youtube"></div>
                             </div>
                             <div class="noticia">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png" alt="Logo google">
                                 <div class="txt-noticia-google"></div>
                             </div>
                         </div>
