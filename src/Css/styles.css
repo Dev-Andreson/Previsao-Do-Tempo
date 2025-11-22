@@ -553,6 +553,13 @@ footer .container {
         width: 100%;
     }
 
+    main .section-fim .container .row .card-noticias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
     footer .container {
         flex-direction: column;
     }

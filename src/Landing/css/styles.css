@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --primary-color: #2C6CBF;
+    --secondary-color: #F0F8FF;
+    --text-color: #ffffff;
+    --light-text: #eceaeab0;
+    --border-color: #E0E0E0;
+    --card-bg: #086afd;
+    --background: #063df0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Start*/
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+
+/* Sobrescrevendo o comportamento padrão do Bootstrap */
+header .linha {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin: 0 !important;
+    flex-wrap: nowrap !important;
+}
+
+header .logo {
+    height: 40px;
+    flex-shrink: 0;
+}
+
+header .btn-topo {
+    display: flex;
+    align-items: center;
+    background: var(--secondary-color);
+    border-radius: 25px;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    flex-shrink: 0;
+    margin: 0 15px;
+}
+
+header .btn-topo i.bi-geo-alt-fill {
+    color: rgba(66, 66, 66, 0.671);
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+header .btn-topo input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 300px;
+    padding: 5px;
+}
+
+header .btn-topo button {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+}
+
+header .login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+header .login i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+header .login a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header .login button {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+header .login button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+/* Header End*/
+
+/* Carousel Section */
+.carrousel {
+    margin-top: 20px;
+}
+
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* Main Content Start*/
+main .apresentacao {
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Carrousel Start*/
+main .carrousel {
+    margin: 0;
+    width: 100%;
+}
+
+main .carrousel .container {
+    padding: 0;
+    max-width: 100%;
+}
+
+main .carrousel .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0px;
+    border-bottom: 3px solid var(--border-color);
+}
+
+main .carrousel .carousel-item {
+    position: relative;
+}
+
+main .carrousel .carousel-item .carousel-caption {
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 50%;
+    top: 20px;
+    left: 68%;
+    width: 30%;
+    height: 130px;
+}
+
+main .carrousel .carousel-item .carousel-caption h5 {
+    font-size: 24px;
+    color: rgb(248, 245, 54);
+    margin-bottom: 10px;
+    filter: drop-shadow(2px 1px 1px black);
+}
+/* Carrousel End*/
+
+/* Sobrescrevendo linha do Bootstrap na seção apresentação */
+main .apresentacao .linha {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
+
+main .apresentacao .txt {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+main .apresentacao .txt h1 {
+    font-size: 48px;
+    color: var(--secondary-color);  
+    font-family: "Open Sans", sans-serif;
+}
+
+main .apresentacao .txt p {
+    font-size: 13px;
+    color: var(--light-text);
+}
+
+main .apresentacao .txt button {
+    width: 150px;
+    padding: 10px 0;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+main .apresentacao .txt button:hover {
+    background: #1e4fa8;
+}
+
+main .apresentacao .img {
+    width: 45%;
+    text-align: center;
+}
+
+main .apresentacao .img img {
+    width: 600px;
+    height: auto;
+    filter: drop-shadow(1px 20px 10px rgb(12, 12, 12));
+}
+/* Main Content End*/
+
+/* Footer Start*/
+footer {
+    background: var(--card-bg);
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-logo-footer img {
+    height: 50px;
+    border-radius: 4px;
+}
+
+.txt-direitos p {
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+.contact-footer h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact-icons a {
+    color: blue;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.contact-icons a:hover {
+    color: var(--text-color);
+}
+/* Footer End*/
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .linha {
+        flex-wrap: wrap !important;
+        gap: 15px;
+    }
+    
+    header .btn-topo {
+        order: 3;
+        width: 100%;
+        margin: 0;
+    }
+    
+    header .btn-topo input {
+        width: 100%;
+    }
+    
+    main .apresentacao .linha {
+        flex-direction: column !important;
+        gap: 30px;
+    }
+    
+    main .apresentacao .txt,
+    main .apresentacao .img {
+        width: 100%;
+    }
+    
+    footer .container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="ViTemp - Previsão do tempo precisa e em tempo real. Confira temperatura, chuva, vento e condições climáticas para sua cidade. Meteorologia confiável e atualizada.">    <meta name="keywords" content="previsão do tempo, clima, temperatura, ViTemp, previsão meteorológica, condições climáticas, chuva, sol, umidade, vento, previsão do tempo agora, tempo ao vivo, meteorologia, previsão semana, clima hoje">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/midia/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/midia/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/midia/favicon-16x16.png">
+    <meta property="og:site_name" content="ViTemp">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+    <script src="js/script.js"></script>
+    <meta name="author" content="dev.andreson">
+    <title>ViTemp</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="linha">
+                <a href="/Previsao-Do-Tempo/index.html"><img src="/Previsao-Do-Tempo/assets/midia/vitemp-logo.png" alt="ViTemp Logo" class="logo"></a>
+                <div class="btn-topo">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <input type="search" name="city_name" id="city_name" placeholder="Digite o nome da cidade" onkeydown="if(event.key === 'Enter') buscaApi()">
+                    <button type="submit" onclick="buscaApi()"><i class="bi bi-search"></i></button>
+                </div>
+                <div class="login">
+                    <i class="bi bi-person-circle"></i>
+                    <button type="submit" class="login" id="login"><a href="/Previsao-Do-Tempo/src/login vitemp/login.html">Login</a></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="carrousel">
+            <div class="container">
+                <div class="linha">
+                    <div id="carouselExampleCaptions" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="https://recreio.com.br/wp-content/uploads/aleatorio/chuva_capa.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Não sejá pego desprevinido.</h5>
+                                <p>Saiba sempre quando levar o seu guarda chuva para se proteger de se molhar.</p>
+                            </div>
+                            </div>
+                            <div class="carousel-item">
+                            <img src="https://f.i.uol.com.br/fotografia/2025/02/17/173981752867b3823813e29_1739817528_3x2_xl.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Não saia sem seu guarda chuva no sol.</h5>
+                                <p>Saiba o melhor dia para sua caminhada.</p>
+                            </div>
+                            </div>
+                            <div class="carousel-item">
+                            <img src="https://s2-g1.glbimg.com/cGtHGqGEbn3DtfJoev_ZBNh4lYs=/0x0:1113x742/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/M/c/pi0Z8GSNW4mRRQnWP8QA/whatsapp-image-2021-02-04-at-12.52.01.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Saiba qual o melhor dia para ver um raio.</h5>
+                                <p>Prepare sua camera para aquela boa foto de um raio na sua cidade.</p>
+                            </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="apresentacao">
+            <div class="container">
+                <div class="linha">
+                    <div class="txt">
+                        <h1>ViTemp, a previsão do tempo que você precisa na sua tela.</h1>
+                        <p>Com a ViTemp você sai de casa sem medo se precisa levar o guarda chuva ou não. A Vitemp te mostra a previsão de até 15 dias para você pode se prepara para aquela viagem ou aquele churrasco.</p>
+                        <button type="button">SAIBA MAIS</button>
+                    </div>
+                    <div class="img">
+                        <img src="/Previsao-Do-Tempo/assets/midia/mulher.png" alt="Mulher com guarda-chuva">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="linha">
+                    <div class="txt-info">
+                        <h2>Por que escolher a ViTemp?</h2>
+                        <ul>
+                            <li>Previsão precisa e atualizada</li>
+                            <li>Interface amigável e fácil de usar</li>
+                            <li>Acesso rápido às informações climáticas</li>
+                            <li>Alertas de condições climáticas severas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="img-logo-footer"><img src="/Previsao-Do-Tempo/assets/midia/vitemp.inii.png" alt="Vitemp Logo"></div>
+            <div class="txt-direitos">
+                <p>© 2024 ViTemp. Todos os direitos reservados.</p>
+            </div>
+            <div class="contact-footer">
+                <h3>Entre em contato</h3>
+                <div class="contact-icons">
+                    <a href="https://www.instagram.com/dev.andreson" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
