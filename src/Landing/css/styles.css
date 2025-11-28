@@ -11,9 +11,12 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+a , li {
     text-decoration: none;
     list-style: none;
-    box-sizing: border-box;
 }
 
 body {
@@ -60,6 +63,11 @@ header .container .linha {
 }
 
 header .container .linha .logo {
+    width: auto;
+    background-color: var(--background);
+}
+
+header .container .linha .logo {
     height: 40px;
 }
 
@@ -88,7 +96,7 @@ header .container .linha .btn-topo input {
 }
 
 header .container .linha .btn-topo button {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     border: none;
     color: white;
     width: 40px;
@@ -101,6 +109,9 @@ header .container .linha .login {
     display: flex;
     align-items: center;
     gap: 8px;
+    background-color: var(--secondary-color);
+    padding: 7px;
+    border-radius: 25px;
 }
 
 header .container .linha .login i {
@@ -113,7 +124,6 @@ header .container .linha .login a {
 }
 
 header .container .linha .login button {
-    background: transparent;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     padding: 8px 15px;
