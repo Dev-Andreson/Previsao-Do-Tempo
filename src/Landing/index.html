@@ -20,97 +20,200 @@
     <title>ViTemp</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="linha">
-                <a href="/Previsao-Do-Tempo/index.html"><img src="/Previsao-Do-Tempo/assets/midia/vitemp-logo.png" alt="ViTemp Logo" class="logo"></a>
-                <div class="btn-topo">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <input type="search" name="city_name" id="city_name" placeholder="Digite o nome da cidade" onkeydown="if(event.key === 'Enter') buscaApi()">
-                    <button type="submit" onclick="buscaApi()"><i class="bi bi-search"></i></button>
-                </div>
-                <div class="login">
-                    <i class="bi bi-person-circle"></i>
-                    <button type="submit" class="login" id="login"><a href="/Previsao-Do-Tempo/src/login vitemp/login.html">Login</a></button>
+    <div class="hero-top">
+        <header>
+            <div class="container">
+                <div class="linha">
+                    <a href="/Previsao-Do-Tempo/index.html"><img src="/Previsao-Do-Tempo/assets/midia/vitemp-ini.png" alt="ViTemp Logo" class="logo"></a>
+                    <div class="btn-topo">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <input type="search" name="city_name" id="city_name" placeholder="Digite o nome da cidade" onkeydown="if(event.key === 'Enter') buscaApi()">
+                        <button type="submit" onclick="buscaApi()"><i class="bi bi-search"></i></button>
+                    </div>
+                    <div class="login">
+                        <i class="bi bi-person-circle"></i>
+                        <button type="submit" class="login" id="login"><a href="/Previsao-Do-Tempo/src/login vitemp/login.html">Login</a></button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    
+        </header>
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Previsão do Tempo Precisa e em Tempo Real</h1>
+                        <p>Confira a temperatura, chuva, vento e condições climáticas para sua cidade com o ViTemp. Meteorologia confiável e atualizada.</p>
+                        <a href="/Previsao-Do-Tempo/src/login vitemp/login.html" class="btn-hero">Saiba Mais</a>
+                    </div>
+                </div>
+            </section>
+    </div>
+
     <main>
-        <section class="carrousel">
+
+        <section class="sobre">
             <div class="container">
-                <div class="linha">
-                    <div id="carouselExampleCaptions" class="carousel slide">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <div class="row">
+                    <div class="titulo">
+                        <h1>Saiba mais sobre o ViTemp seus serviços e suas funcionalidades de previsão do tempo.</h1>
+                    </div>
+                    <div class="descricao-card">
+                        <div class="img"><img src="/Previsao-Do-Tempo/assets/midia/previsão.png" alt=""></div>
+                        <p>O ViTemp é uma plataforma de previsão do tempo que oferece informações precisas e atualizadas sobre as condições climáticas em diversas regiões. Com uma interface intuitiva e fácil de usar, o ViTemp permite que os usuários acessem dados meteorológicos detalhados, incluindo temperatura, umidade, velocidade do vento e probabilidade de chuva. Nossa missão é fornecer previsões confiáveis para ajudar as pessoas a se prepararem para o clima, seja para atividades ao ar livre, planejamento de viagens ou simplesmente para o dia a dia. Com o ViTemp, você estará sempre informado sobre o tempo, onde quer que esteja.</p>
+                    </div>
+                    <div class="indices-card">
+                        <div class="img"><img src="/Previsao-Do-Tempo/assets/midia/indices.png" alt=""></div>
+                        <p>O ViTemp utiliza uma variedade de índices meteorológicos para fornecer previsões precisas e detalhadas. Entre os principais índices utilizados estão o Índice de Calor, que combina temperatura e umidade para indicar a sensação térmica; o Índice UV, que mede a intensidade da radiação ultravioleta do sol, ajudando os usuários a se protegerem contra danos solares; e o Índice de Conforto, que avalia as condições climáticas gerais para determinar o nível de conforto ao ar livre. Além disso, o ViTemp também monitora índices de qualidade do ar e alertas meteorológicos para garantir que os usuários estejam sempre informados sobre as condições ambientais. Esses índices são essenciais para fornecer uma visão abrangente do clima e ajudar os usuários a tomarem decisões informadas.</p>
+                    </div>
+                    <div class="tecnologia-card">
+                        <div class="img"></div>
+                        <p>O ViTemp utiliza tecnologia de ponta para garantir a precisão e a confiabilidade das previsões do tempo. Nossa plataforma integra dados de satélites meteorológicos, estações terrestres e modelos climáticos avançados para fornecer informações atualizadas em tempo real. Utilizamos algoritmos sofisticados de aprendizado de máquina para analisar grandes volumes de dados e identificar padrões climáticos, permitindo previsões mais precisas e detalhadas. Além disso, o ViTemp conta com uma infraestrutura robusta na nuvem, garantindo alta disponibilidade e desempenho rápido para os usuários. Com essas tecnologias, o ViTemp está comprometido em oferecer a melhor experiência possível na previsão do tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="depoimentos">
+            <div class="container">
+                <div class="row">
+                    <div class="titulo">
+                        <h1>O que nossos usuários dizem sobre o ViTemp</h1>
+                    </div>
+                    <div class="depos-cards">
+                        <div class="depo-card">
+                            <div class="img-user"><img src="https://f.i.uol.com.br/fotografia/2024/03/07/170982434865e9d95cd132e_1709824348_3x2_md.jpg" alt="Foto Da Ana"></div>
+                            <div class="txt-depoimento">
+                                <p>"O ViTemp é minha fonte confiável para previsões do tempo. As informações são sempre precisas e atualizadas."</p>
+                                <h3>- Ana S.</h3>
+                                <ul class="avaliacao">
+                                    <li class="star-icon ativo" data-avaliacao="1"></li>
+                                    <li class="star-icon" data-avaliacao="2"></li>
+                                    <li class="star-icon" data-avaliacao="3"></li>
+                                    <li class="star-icon" data-avaliacao="4"></li>
+                                    <li class="star-icon" data-avaliacao="5"></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                            <img src="https://recreio.com.br/wp-content/uploads/aleatorio/chuva_capa.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Não sejá pego desprevinido.</h5>
-                                <p>Saiba sempre quando levar o seu guarda chuva para se proteger de se molhar.</p>
-                            </div>
-                            </div>
-                            <div class="carousel-item">
-                            <img src="https://f.i.uol.com.br/fotografia/2025/02/17/173981752867b3823813e29_1739817528_3x2_xl.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Não saia sem seu guarda chuva no sol.</h5>
-                                <p>Saiba o melhor dia para sua caminhada.</p>
-                            </div>
-                            </div>
-                            <div class="carousel-item">
-                            <img src="https://s2-g1.glbimg.com/cGtHGqGEbn3DtfJoev_ZBNh4lYs=/0x0:1113x742/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/M/c/pi0Z8GSNW4mRRQnWP8QA/whatsapp-image-2021-02-04-at-12.52.01.jpeg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Saiba qual o melhor dia para ver um raio.</h5>
-                                <p>Prepare sua camera para aquela boa foto de um raio na sua cidade.</p>
-                            </div>
+                        <div class="depo-card">
+                            <div class="img-user"><img src="https://s2-g1.glbimg.com/9ikN2NO3QDgs-fFzh3_Z1RyMp_o=/0x0:1242x1223/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2024/N/a/WsfryTSUA8VobfN5lBCA/whatsapp-image-2024-06-11-at-12.59.36.jpeg" alt="Foto Do Henrique"></div>
+                            <div class="txt-depoimento">
+                                <p>"O ViTemp é minha fonte confiável para previsões do tempo. As informações são sempre precisas e atualizadas."</p>
+                                <h3>- Henrique S.</h3>
+                                <ul class="avaliacao">
+                                    <li class="star-icon ativo" data-avaliacao="1"></li>
+                                    <li class="star-icon" data-avaliacao="2"></li>
+                                    <li class="star-icon" data-avaliacao="3"></li>
+                                    <li class="star-icon" data-avaliacao="4"></li>
+                                    <li class="star-icon" data-avaliacao="5"></li>
+                                </ul>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        <div class="depo-card">
+                            <div class="img-user"><img src="https://pt.quizur.com/_image?href=https://img.quizur.com/f/img64079bf2ddbd22.84625445.jpg?lastEdited=1678220300&w=600&h=600&f=webp" alt="Foto Do Danilo"></div>
+                            <div class="txt-depoimento">
+                                <p>"O ViTemp é minha fonte confiável para previsões do tempo. As informações são sempre precisas e atualizadas."</p>
+                                <h3>- Danilo G.</h3>
+                                <ul class="avaliacao">
+                                    <li class="star-icon ativo" data-avaliacao="1"></li>
+                                    <li class="star-icon" data-avaliacao="2"></li>
+                                    <li class="star-icon" data-avaliacao="3"></li>
+                                    <li class="star-icon" data-avaliacao="4"></li>
+                                    <li class="star-icon" data-avaliacao="5"></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="apresentacao">
+        <section class="convite">
             <div class="container">
-                <div class="linha">
-                    <div class="txt">
-                        <h1>ViTemp, a previsão do tempo que você precisa na sua tela.</h1>
-                        <p>Com a ViTemp você sai de casa sem medo se precisa levar o guarda chuva ou não. A Vitemp te mostra a previsão de até 15 dias para você pode se prepara para aquela viagem ou aquele churrasco.</p>
-                        <button type="button">SAIBA MAIS</button>
-                    </div>
-                    <div class="img">
-                        <img src="/Previsao-Do-Tempo/assets/midia/mulher.png" alt="Mulher com guarda-chuva">
+                <div class="row">
+                    <div class="titulo">
+                        <h1>Pronto para experimentar o ViTemp?</h1>
+                        <p>Junte-se a milhares de usuários satisfeitos que confiam no ViTemp para suas necessidades de previsão do tempo. Cadastre-se agora e comece a aproveitar nossas funcionalidades exclusivas!</p>
+                        <a href="/Previsao-Do-Tempo/src/login vitemp/login.html" class="btn-convite">Cadastre-se Agora</a>
                     </div>
                 </div>
             </div>
         </section>
-        <section>
-            <div class="container">
-                <div class="linha">
-                    <div class="txt-info">
-                        <h2>Por que escolher a ViTemp?</h2>
-                        <ul>
-                            <li>Previsão precisa e atualizada</li>
-                            <li>Interface amigável e fácil de usar</li>
-                            <li>Acesso rápido às informações climáticas</li>
-                            <li>Alertas de condições climáticas severas</li>
-                        </ul>
+        <section class="funcionalidades">
+                <div class="container">
+                    <div class="cards">
+                        <div class="func-card">
+                                <i class="bi bi-cloud-lightning-rain"></i>
+                                <div class="titulo">
+                                    <h2>Previsão Detalhada</h2>
+                                </div>
+                                <div class="infos">
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-cloud-drizzle"></i></div>
+                                        <p>Probabilidade De Chuva</p>
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-cloud-haze2"></i></div>
+                                        <p>Velocidade Do Vento</p>
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-moisture"></i></div>
+                                        <p>Porcentagem Da Umidade</p>
+                                    </div>
+                                </div>
+                                <div class="info-page">
+                                    <p>Obtenha previsões detalhadas para os próximos dias, incluindo temperatura, umidade, vento e probabilidade de chuva.</p>
+                                    <button type="button"><a href="#">Clique Aqui</a></button>
+                                </div>                            
+                        </div>
+                        <div class="func-card">
+                                <i class="bi bi-thermometer-half"></i>
+                                <div class="titulo">
+                                    <h2>Atualizações em Tempo Real</h2>
+                                </div>
+                                <div class="infos">
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-cloud-drizzle"></i></div>
+                                        <p>Probabilidade De Chuva</p>
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-cloud-haze2"></i></div>
+                                        <p>Velocidade Do Vento</p>
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-moisture"></i></div>
+                                        <p>Porcentagem Da Umidade</p>
+                                    </div>
+                                </div>
+                                <div class="info-page">
+                                    <p>Receba atualizações em tempo real sobre mudanças climáticas e alertas meteorológicos importantes.</p>
+                                    <button type="button"><a href="#">Clique Aqui</a></button>
+                                </div>                            
+                        </div>
+                        <div class="func-card">
+                                <i class="bi bi-droplet-half"></i>
+                                <div class="titulo">
+                                    <h2>Interface Intuitiva</h2>
+                                </div>
+                                <div class="infos">
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-cloud-drizzle"></i></div>
+                                        <p>Probabilidade De Chuva</p>
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-cloud-haze2"></i></div>
+                                        <p>Velocidade Do Vento</p>
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="icon"><i class="bi bi-moisture"></i></div>
+                                        <p>Porcentagem Da Umidade</p>
+                                    </div>
+                                </div>
+                                <div class="info-page">
+                                    <p>Navegue facilmente pelo nosso site com uma interface amigável e design responsivo para todos os dispositivos.</p>
+                                    <button type="button"><a href="#">Clique Aqui</a></button>
+                                </div>                            
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
     </main>
 
     <footer>
@@ -129,5 +232,17 @@
             </div>
         </div>
     </footer>
+
 </body>
+<script>
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+
+        if (window.scrollY > 50) { 
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+    </script>
 </html>
